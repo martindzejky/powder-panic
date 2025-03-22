@@ -1,41 +1,26 @@
 extends CharacterBody2D
 
-@export var forward_speed = 300.0
+@export var current_speed = 400.0
 @export var gravity = 1000.0
-@export var max_fall_speed = 1000.0
-@export var slope_snap_force = 200.0     # Force pushing player onto slopes
-@export var max_slope_angle = 60.0
+@export var slope_snap_distance = 100.0  # Distance to snap to slope
 
 @export var sprite: Sprite2D
 
 var slope_normal = Vector2.UP
-var last_safe_normal = Vector2.UP
 
 func _physics_process(delta):
   if is_on_floor():
-    # Check if slope is too steep
-    var slope_angle = abs(rad_to_deg(slope_normal.angle_to(Vector2.UP)))
-    if slope_angle > max_slope_angle:
-      # Too steep! Treat as air
-      velocity.y += gravity * delta
-      velocity.y = min(velocity.y, max_fall_speed)
-      # Launch in a direction based on last good slope
-      velocity = velocity.slide(last_safe_normal)
-    else:
-      # Safe slope, remember it
-      last_safe_normal = slope_normal
-      # Normal ground movement
-      var desired_velocity = Vector2.RIGHT * forward_speed
-      desired_velocity = desired_velocity.slide(slope_normal)
-      desired_velocity += slope_normal * -slope_snap_force
-      velocity = desired_velocity
-
+    # Movement aligned with slope
+    var slope_direction = slope_normal.rotated(PI/2)  # 90 degrees from normal
+    velocity = slope_direction * current_speed
   else:
-    # In air - keep horizontal momentum and apply gravity
-    velocity.y += gravity * delta
-    velocity.y = min(velocity.y, max_fall_speed)
+    handle_air_movement(delta)
 
   move_and_slide()
+
+  # Try to snap to slopes when in air and moving downward
+  if !is_on_floor():
+    snap_to_slope()
 
   if is_on_floor():
     # Store the new slope normal if we're on ground
@@ -43,3 +28,37 @@ func _physics_process(delta):
 
     # Rotate the sprite to match the slope
     sprite.rotation = slope_normal.angle() + PI / 2
+
+    sprite.modulate = Color.RED
+  else:
+    sprite.modulate = Color.GREEN
+
+  queue_redraw()
+
+func _draw():
+  draw_line(Vector2.ZERO, slope_normal * 100, Color.RED)
+  draw_line(Vector2.ZERO, slope_normal.rotated(PI/2) * 100, Color.BLUE)
+  draw_line(Vector2.ZERO, velocity, Color.GREEN)
+
+func handle_air_movement(delta):
+  # Apply gravity to change direction
+  velocity.y += gravity * delta
+
+  # Normalize to maintain constant speed
+  velocity = velocity.normalized() * current_speed
+
+func snap_to_slope():
+  # Test movement downward
+  var test_motion = Vector2(0, slope_snap_distance)
+  var collision = move_and_collide(test_motion, true) # true = test only
+
+  if collision:
+    # We found a slope!
+    slope_normal = collision.get_normal()
+
+    # Move to the snap position
+    velocity = test_motion
+    move_and_slide()
+
+    # Restore the proper velocity for next frame
+    velocity = slope_normal.rotated(PI/2) * current_speed

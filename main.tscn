@@ -1,31 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://1fwepvgqwsjn"]
+[gd_scene load_steps=5 format=3 uid="uid://1fwepvgqwsjn"]
 
-[ext_resource type="Texture2D" uid="uid://b3chs5lc3b2n2" path="res://sprites/player.png" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://bs5idmatsi0di" path="res://objects/player.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://x8po7mswgvxt" path="res://objects/player.tscn" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b2os2qd2kiwug" path="res://objects/chunk.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://ds03xy24tsheq" path="res://objects/chunk2.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cl6w8myc7n6h1" path="res://objects/chunk3.tscn" id="5_lquwl"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
-radius = 80.0
-
 [node name="main" type="Node2D"]
 
-[node name="player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("sprite")]
-collision_layer = 0
-floor_stop_on_slope = false
-floor_max_angle = 1.0472
-script = ExtResource("1_h2yge")
-sprite = NodePath("sprite")
-
-[node name="sprite" type="Sprite2D" parent="player"]
-scale = Vector2(10, 10)
-texture = ExtResource("1_0xm2m")
-
-[node name="shape" type="CollisionShape2D" parent="player"]
-shape = SubResource("CircleShape2D_0xm2m")
-
-[node name="camera" type="Camera2D" parent="player"]
+[node name="player" parent="." instance=ExtResource("1_1bvp3")]
 
 [node name="chunk" parent="." instance=ExtResource("3_h2yge")]
 position = Vector2(-140, 184)
