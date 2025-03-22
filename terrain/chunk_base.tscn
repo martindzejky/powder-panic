@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://btnol5clr6iy1"]
+
+[ext_resource type="Script" uid="uid://cj0mojf6oxxpk" path="res://terrain/chunk.gd" id="1_i74ng"]
+[ext_resource type="Script" uid="uid://c0rmwwdpahbpa" path="res://sprites/delete_when_far_away.gd" id="2_dl0qw"]
+
+[sub_resource type="Curve2D" id="Curve2D_1aw3e"]
+_data = {
+"points": PackedVector2Array(-112.633, -16.9834, 0, 0, 0, 0, 0, 0, 0, 0, 351, 99)
+}
+point_count = 2
+
+[node name="chunk_base" type="Node2D" node_paths=PackedStringArray("path", "line", "polygon", "shape")]
+script = ExtResource("1_i74ng")
+path = NodePath("path")
+line = NodePath("line")
+polygon = NodePath("polygon")
+shape = NodePath("body/shape")
+
+[node name="path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_1aw3e")
+
+[node name="line" type="Line2D" parent="."]
+z_index = -1
+width = 4.0
+default_color = Color(0.980392, 0.984314, 0.988235, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="polygon" type="Polygon2D" parent="."]
+z_index = -2
+color = Color(0.8415, 0.91575, 0.99, 1)
+
+[node name="body" type="StaticBody2D" parent="."]
+
+[node name="shape" type="CollisionPolygon2D" parent="body"]
+
+[node name="delete" type="Node" parent="." node_paths=PackedStringArray("what_to_delete")]
+script = ExtResource("2_dl0qw")
+what_to_delete = NodePath("..")
+metadata/_custom_type_script = "uid://c0rmwwdpahbpa"

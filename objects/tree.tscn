@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dis1gi3l3tqjx"]
+
+[ext_resource type="Script" uid="uid://bypy2mfx0lr18" path="res://objects/tree.gd" id="1_d8ko4"]
+[ext_resource type="Texture2D" uid="uid://brq044agvkayo" path="res://sprites/trees.png" id="1_j00qk"]
+
+[node name="tree" type="Node2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_d8ko4")
+sprite = NodePath("sprite")
+
+[node name="sprite" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(0, -32)
+texture = ExtResource("1_j00qk")
+hframes = 5

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://psdfrnmixpj3"]
+[gd_scene load_steps=4 format=3 uid="uid://psdfrnmixpj3"]
 
-[ext_resource type="PackedScene" uid="uid://b2os2qd2kiwug" path="res://terrain/chunk.tscn" id="1_nwskw"]
+[ext_resource type="PackedScene" uid="uid://btnol5clr6iy1" path="res://terrain/chunk_base.tscn" id="1_nwskw"]
+[ext_resource type="PackedScene" uid="uid://dis1gi3l3tqjx" path="res://objects/tree.tscn" id="2_8qs44"]
 
 [sub_resource type="Curve2D" id="Curve2D_dl4sa"]
 _data = {
@@ -12,3 +13,29 @@ point_count = 2
 
 [node name="path" parent="." index="0"]
 curve = SubResource("Curve2D_dl4sa")
+
+[node name="tree" parent="polygon" index="0" instance=ExtResource("2_8qs44")]
+position = Vector2(92, 28)
+rotation = -0.0350878
+
+[node name="tree2" parent="polygon" index="1" instance=ExtResource("2_8qs44")]
+position = Vector2(108, 29)
+rotation = -0.0350878
+
+[node name="tree3" parent="polygon" index="2" instance=ExtResource("2_8qs44")]
+position = Vector2(152, 27)
+rotation = -0.0350878
+
+[node name="tree4" parent="polygon" index="3" instance=ExtResource("2_8qs44")]
+position = Vector2(168, 25)
+rotation = -0.133848
+
+[node name="tree5" parent="polygon" index="4" instance=ExtResource("2_8qs44")]
+position = Vector2(277, 1.90735e-06)
+rotation = -0.133848
+
+[node name="tree6" parent="polygon" index="5" instance=ExtResource("2_8qs44")]
+position = Vector2(291, -4)
+rotation = -0.189967
+
+[node name="trees" type="Node2D" parent="." index="5"]

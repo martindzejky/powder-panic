@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtp4tvxmmtf7f"]
+[gd_scene load_steps=4 format=3 uid="uid://dtp4tvxmmtf7f"]
 
-[ext_resource type="PackedScene" uid="uid://b2os2qd2kiwug" path="res://terrain/chunk.tscn" id="1_idh0g"]
+[ext_resource type="PackedScene" uid="uid://btnol5clr6iy1" path="res://terrain/chunk_base.tscn" id="1_idh0g"]
+[ext_resource type="PackedScene" uid="uid://dis1gi3l3tqjx" path="res://objects/tree.tscn" id="2_mk87a"]
 
 [sub_resource type="Curve2D" id="Curve2D_64xdx"]
 _data = {
@@ -12,3 +13,9 @@ point_count = 2
 
 [node name="path" parent="." index="0"]
 curve = SubResource("Curve2D_64xdx")
+
+[node name="trees" type="Node2D" parent="." index="5"]
+
+[node name="tree" parent="." index="6" instance=ExtResource("2_mk87a")]
+position = Vector2(47, 12)
+rotation = 0.322809

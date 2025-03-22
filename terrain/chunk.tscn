@@ -1,41 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2os2qd2kiwug"]
+[gd_scene load_steps=4 format=3 uid="uid://dnf8uwdy4xkhb"]
 
-[ext_resource type="Script" uid="uid://cj0mojf6oxxpk" path="res://terrain/chunk.gd" id="1_i74ng"]
-[ext_resource type="Script" uid="uid://c0rmwwdpahbpa" path="res://sprites/delete_when_far_away.gd" id="2_dl0qw"]
+[ext_resource type="PackedScene" uid="uid://btnol5clr6iy1" path="res://terrain/chunk_base.tscn" id="1_g7xvp"]
+[ext_resource type="PackedScene" uid="uid://dis1gi3l3tqjx" path="res://objects/tree.tscn" id="2_dl0qw"]
 
-[sub_resource type="Curve2D" id="Curve2D_1aw3e"]
+[sub_resource type="Curve2D" id="Curve2D_jnpik"]
 _data = {
-"points": PackedVector2Array(-112.633, -16.9834, 112.633, 16.9834, 0, 0, -125.51, -84.1116, 125.51, 84.1116, 351, 99)
+"points": PackedVector2Array(-79.7303, -5.93737, 79.7303, 5.93737, 0, 0, -185.755, -12.7229, 185.755, 12.7229, 351, 99)
 }
 point_count = 2
 
-[node name="chunk" type="Node2D" node_paths=PackedStringArray("path", "line", "polygon", "shape")]
-script = ExtResource("1_i74ng")
-path = NodePath("path")
-line = NodePath("line")
-polygon = NodePath("polygon")
-shape = NodePath("body/shape")
+[node name="chunk" instance=ExtResource("1_g7xvp")]
 
-[node name="path" type="Path2D" parent="."]
-curve = SubResource("Curve2D_1aw3e")
+[node name="path" parent="." index="0"]
+curve = SubResource("Curve2D_jnpik")
 
-[node name="line" type="Line2D" parent="."]
-z_index = -1
-width = 4.0
-default_color = Color(0.980392, 0.984314, 0.988235, 1)
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
+[node name="tree" parent="." index="5" instance=ExtResource("2_dl0qw")]
+position = Vector2(33, 9)
+rotation = 0.19179
 
-[node name="polygon" type="Polygon2D" parent="."]
-z_index = -2
-color = Color(0.8415, 0.91575, 0.99, 1)
+[node name="tree2" parent="." index="6" instance=ExtResource("2_dl0qw")]
+position = Vector2(132, 48)
+rotation = 0.19179
 
-[node name="body" type="StaticBody2D" parent="."]
+[node name="tree3" parent="." index="7" instance=ExtResource("2_dl0qw")]
+position = Vector2(150, 57)
+rotation = 0.314893
 
-[node name="shape" type="CollisionPolygon2D" parent="body"]
-
-[node name="delete" type="Node" parent="." node_paths=PackedStringArray("what_to_delete")]
-script = ExtResource("2_dl0qw")
-what_to_delete = NodePath("..")
-metadata/_custom_type_script = "uid://c0rmwwdpahbpa"
+[node name="tree4" parent="." index="8" instance=ExtResource("2_dl0qw")]
+position = Vector2(280, 93)
+rotation = 0.0857774
