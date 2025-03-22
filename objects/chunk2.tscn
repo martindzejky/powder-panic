@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dewnuadhhor10"]
+
+[ext_resource type="Texture2D" uid="uid://b4004jrsihniv" path="res://sprites/chunk2.png" id="1_bdmvd"]
+
+[node name="chunk" type="Node2D"]
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("1_bdmvd")
+
+[node name="body" type="StaticBody2D" parent="."]
+
+[node name="shape" type="CollisionPolygon2D" parent="body"]
+position = Vector2(0, -1)
+polygon = PackedVector2Array(-636, -12, -530, -6, -264, 56, -144, 75, -63, 65, 62, 46, 203, 66, 637, 159, 563, 414, -565, 383)

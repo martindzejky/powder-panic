@@ -1,23 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://1fwepvgqwsjn"]
+[gd_scene load_steps=6 format=3 uid="uid://1fwepvgqwsjn"]
 
 [ext_resource type="Texture2D" uid="uid://b3chs5lc3b2n2" path="res://sprites/player.png" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://dbhrmnh24aq8x" path="res://sprites/chunk.png" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://bs5idmatsi0di" path="res://objects/player.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://b2os2qd2kiwug" path="res://objects/chunk.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dewnuadhhor10" path="res://objects/chunk2.tscn" id="4_1bvp3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
+radius = 80.0
 
 [node name="main" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="player" type="CharacterBody2D" parent="."]
+[node name="player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("sprite")]
+position = Vector2(-182, -231)
+collision_layer = 0
+floor_stop_on_slope = false
+floor_max_angle = 1.0472
+script = ExtResource("1_h2yge")
+sprite = NodePath("sprite")
 
 [node name="sprite" type="Sprite2D" parent="player"]
-position = Vector2(-21, -24)
+scale = Vector2(10, 10)
 texture = ExtResource("1_0xm2m")
 
-[node name="chunk" type="Node2D" parent="."]
+[node name="shape" type="CollisionShape2D" parent="player"]
+shape = SubResource("CircleShape2D_0xm2m")
 
-[node name="sprite" type="Sprite2D" parent="chunk"]
-texture = ExtResource("1_ig7tw")
+[node name="camera" type="Camera2D" parent="player"]
 
-[node name="body" type="StaticBody2D" parent="chunk"]
+[node name="chunk" parent="." instance=ExtResource("3_h2yge")]
 
-[node name="shape" type="CollisionPolygon2D" parent="chunk/body"]
+[node name="chunk2" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(635, 332)
+
+[node name="chunk7" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(6005, 2294)
+
+[node name="chunk4" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(2540, 839)
+
+[node name="chunk3" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(1587, 648)
+
+[node name="chunk5" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(3777, 1929)
+
+[node name="chunk6" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(5049, 2100)

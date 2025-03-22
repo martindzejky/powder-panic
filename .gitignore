@@ -12,3 +12,5 @@ export_credentials.cfg
 # OS
 .DS_Store
 
+# IDE
+.cursor
