@@ -4,9 +4,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_dm843"]
 _data = {
-"points": PackedVector2Array(-429.743, 92.8885, 429.743, -92.8885, 0, 0, -257.135, -2.54058, 257.135, 2.54058, 817, 267)
+"points": PackedVector2Array(-75.3755, -3.85279, 75.3755, 3.85279, 0, 0, 0, 0, 0, 0, 464, -105, -604.142, -4.64365, 604.142, 4.64365, 1200, 267)
 }
-point_count = 2
+point_count = 3
 
 [node name="chunk" type="Node2D" node_paths=PackedStringArray("path", "line", "shape")]
 script = ExtResource("1_c2qns")

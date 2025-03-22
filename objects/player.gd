@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var current_speed = 400.0
+@export var current_speed = 800
 @export var gravity = 1000.0
-@export var slope_snap_distance = 100.0  # Distance to snap to slope
+@export var slope_snap_distance = 1.0  # Distance to snap to slope
 
 @export var sprite: Sprite2D
 
@@ -32,13 +32,6 @@ func _physics_process(delta):
     sprite.modulate = Color.RED
   else:
     sprite.modulate = Color.GREEN
-
-  queue_redraw()
-
-func _draw():
-  draw_line(Vector2.ZERO, slope_normal * 100, Color.RED)
-  draw_line(Vector2.ZERO, slope_normal.rotated(PI/2) * 100, Color.BLUE)
-  draw_line(Vector2.ZERO, velocity, Color.GREEN)
 
 func handle_air_movement(delta):
   # Apply gravity to change direction

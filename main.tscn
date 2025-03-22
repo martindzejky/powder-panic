@@ -8,33 +8,25 @@
 [node name="main" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_1bvp3")]
+position = Vector2(-109, 91)
 
 [node name="chunk" parent="." instance=ExtResource("3_h2yge")]
 position = Vector2(-140, 184)
 
 [node name="chunk2" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(268, 389)
+position = Vector2(2872, 712)
 
-[node name="chunk3" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(649, 741)
+[node name="chunk3" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(3993, 1206)
 
 [node name="chunk4" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(1471, 1009)
+position = Vector2(5112, 1697)
 
-[node name="chunk5" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(1879, 1216)
+[node name="chunk5" parent="." instance=ExtResource("5_lquwl")]
+position = Vector2(8135, 2222)
 
-[node name="chunk6" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(2269, 1568)
+[node name="chunk6" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(9339, 2488)
 
-[node name="chunk7" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(2680, 1770)
-
-[node name="chunk8" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(3499, 2039)
-
-[node name="chunk9" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(3911, 2249)
-
-[node name="chunk10" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(4296, 2600)
+[node name="chunk7" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(10459, 2984)
