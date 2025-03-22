@@ -6,12 +6,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
 radius = 80.0
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("rotation_node") groups=["player"]]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("rotation_node", "crash_timer") groups=["player"]]
 collision_layer = 0
 floor_stop_on_slope = false
 floor_max_angle = 1.0472
 script = ExtResource("1_ykyjo")
 rotation_node = NodePath("sprite")
+crash_timer = NodePath("crash_timer")
 
 [node name="sprite" type="Sprite2D" parent="."]
 scale = Vector2(10, 10)
@@ -22,3 +23,9 @@ shape = SubResource("CircleShape2D_0xm2m")
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(342, -56)
+
+[node name="crash_timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="crash_timer" to="." method="_on_crash_timer_timeout"]
