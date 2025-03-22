@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://x8po7mswgvxt"]
+[gd_scene load_steps=7 format=3 uid="uid://x8po7mswgvxt"]
 
-[ext_resource type="Script" uid="uid://bs5idmatsi0di" path="res://objects/player.gd" id="1_ykyjo"]
 [ext_resource type="Texture2D" uid="uid://b3chs5lc3b2n2" path="res://sprites/player.png" id="2_uxov2"]
+[ext_resource type="Script" uid="uid://bs5idmatsi0di" path="res://components/slope_physics.gd" id="2_ykyjo"]
+[ext_resource type="Script" uid="uid://by12bertix6ks" path="res://components/rotate_slope_sprite.gd" id="3_uxov2"]
+[ext_resource type="Script" uid="uid://b67nsttvk6aip" path="res://components/player_jumping.gd" id="4_nmc1l"]
+[ext_resource type="Script" uid="uid://dgq1a6ufabr2o" path="res://components/slope_acceleration.gd" id="5_f46kd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
 radius = 8.0
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("rotation_node", "crash_timer") groups=["player"]]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 0
-floor_stop_on_slope = false
-floor_max_angle = 1.0472
-script = ExtResource("1_ykyjo")
-rotation_node = NodePath("sprite")
-crash_timer = NodePath("crash_timer")
+floor_max_angle = 1.39626
+floor_snap_length = 3.0
 
 [node name="sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_uxov2")
@@ -27,5 +27,27 @@ zoom = Vector2(8, 8)
 [node name="crash_timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="physics" type="Node" parent="." node_paths=PackedStringArray("character")]
+script = ExtResource("2_ykyjo")
+character = NodePath("..")
+metadata/_custom_type_script = "uid://bs5idmatsi0di"
+
+[node name="rotate_sprite" type="Node" parent="." node_paths=PackedStringArray("character", "rotation_node")]
+script = ExtResource("3_uxov2")
+character = NodePath("..")
+rotation_node = NodePath("../sprite")
+metadata/_custom_type_script = "uid://by12bertix6ks"
+
+[node name="jumping" type="Node" parent="." node_paths=PackedStringArray("character", "rotation_node")]
+script = ExtResource("4_nmc1l")
+character = NodePath("..")
+rotation_node = NodePath("../sprite")
+metadata/_custom_type_script = "uid://b67nsttvk6aip"
+
+[node name="acceleration" type="Node" parent="." node_paths=PackedStringArray("character")]
+script = ExtResource("5_f46kd")
+character = NodePath("..")
+metadata/_custom_type_script = "uid://dgq1a6ufabr2o"
 
 [connection signal="timeout" from="crash_timer" to="." method="_on_crash_timer_timeout"]
