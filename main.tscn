@@ -17,28 +17,31 @@ position = Vector2(-140, 184)
 position = Vector2(2872, 712)
 
 [node name="chunk3" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(3993, 1206)
+position = Vector2(4655, 1257)
 
 [node name="chunk4" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(5112, 1697)
+position = Vector2(6442, 1806)
 
 [node name="chunk5" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(8135, 2222)
+position = Vector2(9465, 2331)
 
 [node name="chunk6" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(9339, 2488)
+position = Vector2(10669, 2597)
 
 [node name="chunk7" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(10475, 3653)
+position = Vector2(12700, 4071)
 
 [node name="chunk8" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(13507, 4180)
+position = Vector2(15732, 4598)
 
 [node name="chunk9" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(14713, 4443)
+position = Vector2(16938, 4861)
 
 [node name="chunk10" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(16565, 5538)
+position = Vector2(18474, 5921)
 
 [node name="chunk11" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(17685, 6035)
+position = Vector2(20246, 6473)
+
+[node name="chunk12" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(23267, 6998)

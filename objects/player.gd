@@ -8,11 +8,14 @@ extends CharacterBody2D
 
 var slope_normal = Vector2.UP
 
+var time_in_air = 0.0 # In seconds
+var air_jump_time_limit = 0.3 # How long the player can be off the floor before still allowed to jump (coyote time)
+
 func _physics_process(delta):
-  if Input.is_action_just_pressed("jump") and is_on_floor():
+  if Input.is_action_just_pressed('jump') and time_in_air < air_jump_time_limit:
     handle_jump()
   elif is_on_floor():
-    handle_slope_movement()
+    handle_slope_movement(delta)
   else:
     handle_air_movement(delta)
 
@@ -21,19 +24,26 @@ func _physics_process(delta):
   if is_on_floor():
     slope_normal = get_floor_normal()
     update_sprite_rotation()
+    time_in_air = 0.0
 
     # TODO: just for debug purposes
     sprite.modulate = Color.RED
   else:
+    time_in_air += delta
+
+    # TODO: just for debug purposes
     sprite.modulate = Color.GREEN
 
-func handle_slope_movement():
+func handle_jump():
+  velocity.y = -jump_strength
+
+func handle_slope_movement(delta):
   # Movement aligned with slope
   var slope_direction = slope_normal.rotated(PI/2)  # 90 degrees from normal
   velocity = slope_direction * current_speed
 
-func handle_jump():
-  velocity.y = -jump_strength
+  # Add gravity to snap to slope
+  velocity.y += gravity * delta
 
 func handle_air_movement(delta):
   # Apply gravity to change direction

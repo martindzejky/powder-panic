@@ -8,7 +8,7 @@ const BOTTOM_OFFSET = 1000
 
 func _ready():
   # Initialize the line and the shape collider based on the path curve
-  var points := path.curve.tessellate(4, 1) # TODO: play with this value
+  var points := path.curve.tessellate(4, 2) # TODO: play with this value
   var polygon_points = points.duplicate()
 
   line.points = points

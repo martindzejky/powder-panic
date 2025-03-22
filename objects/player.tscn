@@ -21,3 +21,4 @@ texture = ExtResource("2_uxov2")
 shape = SubResource("CircleShape2D_0xm2m")
 
 [node name="camera" type="Camera2D" parent="."]
+position = Vector2(342, -56)
