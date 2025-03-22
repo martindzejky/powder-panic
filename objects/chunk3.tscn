@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2os2qd2kiwug"]
+[gd_scene load_steps=3 format=3 uid="uid://cl6w8myc7n6h1"]
 
-[ext_resource type="Script" uid="uid://cj0mojf6oxxpk" path="res://objects/chunk.gd" id="1_i74ng"]
+[ext_resource type="Script" uid="uid://cj0mojf6oxxpk" path="res://objects/chunk.gd" id="1_c2qns"]
 
 [sub_resource type="Curve2D" id="Curve2D_dm843"]
 _data = {
-"points": PackedVector2Array(-212.773, 0, 212.773, 0, 0, 0, 0, 0, 0, 0, 408, 205)
+"points": PackedVector2Array(-429.743, 92.8885, 429.743, -92.8885, 0, 0, -257.135, -2.54058, 257.135, 2.54058, 817, 267)
 }
 point_count = 2
 
 [node name="chunk" type="Node2D" node_paths=PackedStringArray("path", "line", "shape")]
-script = ExtResource("1_i74ng")
+script = ExtResource("1_c2qns")
 path = NodePath("path")
 line = NodePath("line")
 shape = NodePath("body/shape")

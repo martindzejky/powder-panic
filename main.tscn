@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://1fwepvgqwsjn"]
+[gd_scene load_steps=7 format=3 uid="uid://1fwepvgqwsjn"]
 
 [ext_resource type="Texture2D" uid="uid://b3chs5lc3b2n2" path="res://sprites/player.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bs5idmatsi0di" path="res://objects/player.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://b2os2qd2kiwug" path="res://objects/chunk.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://dewnuadhhor10" path="res://objects/chunk2.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://ds03xy24tsheq" path="res://objects/chunk2.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cl6w8myc7n6h1" path="res://objects/chunk3.tscn" id="5_lquwl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
 radius = 80.0
@@ -11,7 +12,6 @@ radius = 80.0
 [node name="main" type="Node2D"]
 
 [node name="player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("sprite")]
-position = Vector2(-182, -231)
 collision_layer = 0
 floor_stop_on_slope = false
 floor_max_angle = 1.0472
@@ -28,21 +28,31 @@ shape = SubResource("CircleShape2D_0xm2m")
 [node name="camera" type="Camera2D" parent="player"]
 
 [node name="chunk" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(-140, 184)
 
-[node name="chunk2" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(635, 332)
+[node name="chunk2" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(268, 389)
 
-[node name="chunk7" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(6005, 2294)
+[node name="chunk3" parent="." instance=ExtResource("5_lquwl")]
+position = Vector2(649, 741)
 
 [node name="chunk4" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(2540, 839)
-
-[node name="chunk3" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(1587, 648)
+position = Vector2(1471, 1009)
 
 [node name="chunk5" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(3777, 1929)
+position = Vector2(1879, 1216)
 
-[node name="chunk6" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(5049, 2100)
+[node name="chunk6" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(2269, 1568)
+
+[node name="chunk7" parent="." instance=ExtResource("5_lquwl")]
+position = Vector2(2680, 1770)
+
+[node name="chunk8" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(3499, 2039)
+
+[node name="chunk9" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(3911, 2249)
+
+[node name="chunk10" parent="." instance=ExtResource("5_lquwl")]
+position = Vector2(4296, 2600)
