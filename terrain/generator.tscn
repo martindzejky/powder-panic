@@ -1,0 +1,13 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhyu2fuadfp74"]
+
+[ext_resource type="PackedScene" uid="uid://6kyk2j474f58" path="res://terrain/start-chunk.tscn" id="1_5juyu"]
+[ext_resource type="Script" uid="uid://dhf17kgx703in" path="res://terrain/generator.gd" id="1_ypw2t"]
+[ext_resource type="PackedScene" uid="uid://b2os2qd2kiwug" path="res://terrain/chunk.tscn" id="2_5jnll"]
+[ext_resource type="PackedScene" uid="uid://ds03xy24tsheq" path="res://terrain/chunk2.tscn" id="3_0b048"]
+[ext_resource type="PackedScene" uid="uid://cl6w8myc7n6h1" path="res://terrain/chunk3.tscn" id="4_tmse2"]
+
+[node name="generator" type="Node"]
+script = ExtResource("1_ypw2t")
+chunks = Array[PackedScene]([ExtResource("2_5jnll"), ExtResource("3_0b048"), ExtResource("4_tmse2")])
+
+[node name="start-chunk" parent="." instance=ExtResource("1_5juyu")]

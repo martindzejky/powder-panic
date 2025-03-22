@@ -25,17 +25,14 @@ func _physics_process(delta):
     slope_normal = get_floor_normal()
     update_sprite_rotation()
     time_in_air = 0.0
-
-    # TODO: just for debug purposes
-    sprite.modulate = Color.RED
   else:
     time_in_air += delta
 
-    # TODO: just for debug purposes
-    sprite.modulate = Color.GREEN
-
 func handle_jump():
   velocity.y = -jump_strength
+
+  # Normalize to maintain constant speed
+  velocity = velocity.normalized() * current_speed
 
 func handle_slope_movement(delta):
   # Movement aligned with slope

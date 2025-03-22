@@ -1,47 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://1fwepvgqwsjn"]
+[gd_scene load_steps=3 format=3 uid="uid://1fwepvgqwsjn"]
 
+[ext_resource type="PackedScene" uid="uid://dhyu2fuadfp74" path="res://terrain/generator.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://x8po7mswgvxt" path="res://objects/player.tscn" id="1_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://b2os2qd2kiwug" path="res://objects/chunk.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://ds03xy24tsheq" path="res://objects/chunk2.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://cl6w8myc7n6h1" path="res://objects/chunk3.tscn" id="5_lquwl"]
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node"]
+
+[node name="generator" parent="." instance=ExtResource("1_0xm2m")]
 
 [node name="player" parent="." instance=ExtResource("1_1bvp3")]
-position = Vector2(-109, 91)
-
-[node name="chunk" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(-140, 184)
-
-[node name="chunk2" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(2872, 712)
-
-[node name="chunk3" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(4655, 1257)
-
-[node name="chunk4" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(6442, 1806)
-
-[node name="chunk5" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(9465, 2331)
-
-[node name="chunk6" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(10669, 2597)
-
-[node name="chunk7" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(12700, 4071)
-
-[node name="chunk8" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(15732, 4598)
-
-[node name="chunk9" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(16938, 4861)
-
-[node name="chunk10" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(18474, 5921)
-
-[node name="chunk11" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(20246, 6473)
-
-[node name="chunk12" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(23267, 6998)
+position = Vector2(617, -169)

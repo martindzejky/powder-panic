@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
 radius = 80.0
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("sprite") groups=["player"]]
 collision_layer = 0
 floor_stop_on_slope = false
 floor_max_angle = 1.0472
