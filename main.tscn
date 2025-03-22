@@ -29,4 +29,16 @@ position = Vector2(8135, 2222)
 position = Vector2(9339, 2488)
 
 [node name="chunk7" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(10459, 2984)
+position = Vector2(10475, 3653)
+
+[node name="chunk8" parent="." instance=ExtResource("5_lquwl")]
+position = Vector2(13507, 4180)
+
+[node name="chunk9" parent="." instance=ExtResource("5_lquwl")]
+position = Vector2(14713, 4443)
+
+[node name="chunk10" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(16565, 5538)
+
+[node name="chunk11" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(17685, 6035)
