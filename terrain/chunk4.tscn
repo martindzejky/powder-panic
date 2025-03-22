@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://psdfrnmixpj3"]
+
+[ext_resource type="PackedScene" uid="uid://b2os2qd2kiwug" path="res://terrain/chunk.tscn" id="1_nwskw"]
+
+[sub_resource type="Curve2D" id="Curve2D_dl4sa"]
+_data = {
+"points": PackedVector2Array(-76.4787, -30.2789, 76.4787, 30.2789, 0, 0, -211.814, 68.6695, 211.814, -68.6695, 334, -20)
+}
+point_count = 2
+
+[node name="chunk" instance=ExtResource("1_nwskw")]
+
+[node name="path" parent="." index="0"]
+curve = SubResource("Curve2D_dl4sa")

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b3chs5lc3b2n2" path="res://sprites/player.png" id="2_uxov2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
-radius = 80.0
+radius = 8.0
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("rotation_node", "crash_timer") groups=["player"]]
 collision_layer = 0
@@ -15,14 +15,14 @@ rotation_node = NodePath("sprite")
 crash_timer = NodePath("crash_timer")
 
 [node name="sprite" type="Sprite2D" parent="."]
-scale = Vector2(10, 10)
 texture = ExtResource("2_uxov2")
 
 [node name="shape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0xm2m")
 
 [node name="camera" type="Camera2D" parent="."]
-position = Vector2(342, -56)
+position = Vector2(25, -11)
+zoom = Vector2(8, 8)
 
 [node name="crash_timer" type="Timer" parent="."]
 wait_time = 2.0

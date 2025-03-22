@@ -1,7 +1,7 @@
 extends Node
 class_name DeleteWhenFarAway
 
-@export var distance_to_delete = 10000
+@export var distance_to_delete = 1000
 @export var what_to_delete: Node
 
 func _process(_delta):

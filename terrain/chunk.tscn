@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://cj0mojf6oxxpk" path="res://terrain/chunk.gd" id="1_i74ng"]
 [ext_resource type="Script" uid="uid://c0rmwwdpahbpa" path="res://sprites/delete_when_far_away.gd" id="2_dl0qw"]
 
-[sub_resource type="Curve2D" id="Curve2D_dm843"]
+[sub_resource type="Curve2D" id="Curve2D_1aw3e"]
 _data = {
-"points": PackedVector2Array(-1079.91, -5.81833, 1079.91, 5.81833, 0, 0, -996.673, -12.5048, 996.673, 12.5048, 3012, 528)
+"points": PackedVector2Array(-112.633, -16.9834, 112.633, 16.9834, 0, 0, -125.51, -84.1116, 125.51, 84.1116, 351, 99)
 }
 point_count = 2
 
@@ -16,9 +16,11 @@ line = NodePath("line")
 shape = NodePath("body/shape")
 
 [node name="path" type="Path2D" parent="."]
-curve = SubResource("Curve2D_dm843")
+curve = SubResource("Curve2D_1aw3e")
 
 [node name="line" type="Line2D" parent="."]
+width = 2.0
+joint_mode = 1
 
 [node name="body" type="StaticBody2D" parent="."]
 

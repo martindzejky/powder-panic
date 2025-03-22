@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
-@export var current_speed = 800
-@export var gravity = 1000.0
-@export var jump_strength = 500.0
+@export var current_speed = 80
+@export var gravity = 100.0
+@export var jump_strength = 50.0
 @export var rotation_speed = 3.2
 @export var passive_rotation_speed = 0.3
-@export var crash_tolerance = 1.4
+@export var crash_tolerance = 1.3
 
 @export var rotation_node: Node2D
 @export var crash_timer: Timer
