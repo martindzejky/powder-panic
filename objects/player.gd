@@ -46,7 +46,7 @@ func _physics_process(delta):
     was_in_air = true
 
 func handle_jump():
-  velocity.y = -jump_strength
+  velocity.y -= jump_strength
 
   # Normalize to maintain constant speed
   velocity = velocity.normalized() * current_speed

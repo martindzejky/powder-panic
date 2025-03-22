@@ -8,4 +8,4 @@
 [node name="generator" parent="." instance=ExtResource("1_0xm2m")]
 
 [node name="player" parent="." instance=ExtResource("1_1bvp3")]
-position = Vector2(58, -13)
+position = Vector2(265, 14)
