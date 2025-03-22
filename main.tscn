@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://1fwepvgqwsjn"]
+
+[ext_resource type="Texture2D" uid="uid://b3chs5lc3b2n2" path="res://sprites/player.png" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://dbhrmnh24aq8x" path="res://sprites/chunk.png" id="1_ig7tw"]
+
+[node name="main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="player" type="CharacterBody2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="player"]
+position = Vector2(-21, -24)
+texture = ExtResource("1_0xm2m")
+
+[node name="chunk" type="Node2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="chunk"]
+texture = ExtResource("1_ig7tw")
+
+[node name="body" type="StaticBody2D" parent="chunk"]
+
+[node name="shape" type="CollisionPolygon2D" parent="chunk/body"]
