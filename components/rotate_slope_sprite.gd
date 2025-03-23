@@ -5,6 +5,9 @@ class_name RotateSlopeSprite
 @export var rotation_node: Node2D
 @export var physics: SlopePhysics
 
-func _physics_process(_delta):
+var smoothing_speed: float = 40.0
+
+func _physics_process(delta):
   if physics.is_on_floor:
-    rotation_node.rotation = physics.floor_normal.angle() + PI / 2
+    var target_rotation = physics.floor_normal.angle() + PI / 2
+    rotation_node.rotation = lerp_angle(rotation_node.rotation, target_rotation, smoothing_speed * delta)

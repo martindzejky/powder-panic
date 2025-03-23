@@ -37,7 +37,6 @@ func apply_physics(delta):
 
 func handle_movement(delta):
   is_on_floor = false
-  floor_normal = Vector2.UP
 
   var remaining_motion = character.velocity * delta
 
