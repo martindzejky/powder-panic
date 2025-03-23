@@ -36,9 +36,11 @@ func apply_physics(delta):
     time_in_air += delta
 
 func handle_movement(delta):
-  is_on_floor = false
-
+  var was_on_floor = is_on_floor
+  var original_velocity = character.velocity
   var remaining_motion = character.velocity * delta
+
+  is_on_floor = false
 
   for i in range(max_slides):
     # Stop if no more meaningful motion left
@@ -60,3 +62,18 @@ func handle_movement(delta):
 
     # Update velocity for next frame
     character.velocity = character.velocity.slide(floor_normal)
+
+  # If not on floor after movement, try snapping to the floor
+  if was_on_floor and not is_on_floor and original_velocity.y > 0:
+    # Dynamic snap distance based on velocity magnitude and gravity
+    var snap_vector = Vector2.DOWN * character.velocity.length() * delta
+    var snap_collision = character.move_and_collide(snap_vector, true)
+
+    if snap_collision:
+      # Found floor beneath us, snap to it
+      character.position += snap_vector.normalized() * snap_collision.get_travel()
+      floor_normal = snap_collision.get_normal()
+      is_on_floor = true
+
+      # Align velocity with the floor
+      character.velocity = character.velocity.slide(floor_normal)
