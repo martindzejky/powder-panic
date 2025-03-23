@@ -1,8 +1,8 @@
 extends Node
 
 @export var chunks: Array[PackedScene]
-@export var min_chunks = 20
 
+var min_chunks = 20
 var current_chunk: Node2D
 
 func _ready():

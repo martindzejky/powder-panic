@@ -1,10 +1,11 @@
 extends Node
 class_name SlopePhysics
 
-@export var gravity = 200.0
 @export var character: CharacterBody2D
-@export var ground_friction = 0.01  # Lower = more slippery
-@export var air_friction = 0.005     # Air resistance while jumping
+
+var gravity = 200.0
+var ground_friction = 0.01 # Lower = more slippery
+var air_friction = 0.005 # Air resistance while jumping
 
 func _physics_process(delta):
   if character.is_on_floor():

@@ -4,9 +4,9 @@ class_name PlayerJumping
 @export var character: CharacterBody2D
 @export var rotation_node: Node2D
 
-@export var jump_force: float = 100.0
-@export var backflip_rotation: float = deg_to_rad(140)
-@export var auto_forward_rotation: float = deg_to_rad(20)
+var jump_force: float = 100.0
+var backflip_rotation: float = deg_to_rad(140)
+var auto_forward_rotation: float = deg_to_rad(40)
 
 var time_in_air: float = 0.0
 
