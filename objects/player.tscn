@@ -33,21 +33,24 @@ script = ExtResource("2_ykyjo")
 character = NodePath("..")
 metadata/_custom_type_script = "uid://bs5idmatsi0di"
 
-[node name="rotate_sprite" type="Node" parent="." node_paths=PackedStringArray("character", "rotation_node")]
+[node name="rotate_sprite" type="Node" parent="." node_paths=PackedStringArray("character", "rotation_node", "physics")]
 script = ExtResource("3_uxov2")
 character = NodePath("..")
 rotation_node = NodePath("../sprite")
+physics = NodePath("../physics")
 metadata/_custom_type_script = "uid://by12bertix6ks"
 
-[node name="jumping" type="Node" parent="." node_paths=PackedStringArray("character", "rotation_node")]
+[node name="jumping" type="Node" parent="." node_paths=PackedStringArray("character", "rotation_node", "physics")]
 script = ExtResource("4_nmc1l")
 character = NodePath("..")
 rotation_node = NodePath("../sprite")
+physics = NodePath("../physics")
 metadata/_custom_type_script = "uid://b67nsttvk6aip"
 
-[node name="acceleration" type="Node" parent="." node_paths=PackedStringArray("character")]
+[node name="acceleration" type="Node" parent="." node_paths=PackedStringArray("character", "physics")]
 script = ExtResource("5_f46kd")
 character = NodePath("..")
+physics = NodePath("../physics")
 metadata/_custom_type_script = "uid://dgq1a6ufabr2o"
 
 [connection signal="timeout" from="crash_timer" to="." method="_on_crash_timer_timeout"]
