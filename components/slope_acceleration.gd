@@ -2,7 +2,7 @@ extends Node
 class_name SlopeAcceleration
 
 @export var character: CharacterBody2D
-@export var acceleration: float = 80.0
+@export var acceleration: float = 160.0
 @export var physics: SlopePhysics
 
 func _physics_process(delta):
