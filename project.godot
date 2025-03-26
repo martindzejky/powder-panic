@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Powder Panic"
 config/description="Escape the endless avalanche and get the highest score!"
-config/version="0.0"
+config/version="1.0"
 run/main_scene="uid://1fwepvgqwsjn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/use_filter=false
