@@ -6,6 +6,8 @@ var min_chunks = 20
 var current_chunk: Node2D
 
 func _ready():
+  assert(get_child_count() > 0, 'The generator should start with at least one child chunk!')
+
   current_chunk = get_child(0)
   ensure_minimum_chunks()
 

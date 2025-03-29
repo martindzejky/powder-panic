@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtp4tvxmmtf7f"]
 
-[ext_resource type="PackedScene" uid="uid://btnol5clr6iy1" path="res://terrain/chunk_base.tscn" id="1_idh0g"]
+[ext_resource type="PackedScene" uid="uid://btnol5clr6iy1" path="res://chunks/base.tscn" id="1_idh0g"]
 [ext_resource type="PackedScene" uid="uid://dis1gi3l3tqjx" path="res://objects/tree.tscn" id="2_mk87a"]
 
 [sub_resource type="Curve2D" id="Curve2D_64xdx"]

@@ -6,7 +6,7 @@ class_name PlayerJumping
 @export var physics: SlopePhysics
 
 var jump_force: float = 100.0
-var backflip_rotation: float = deg_to_rad(140)
+var backflip_rotation: float = deg_to_rad(190)
 var auto_forward_rotation: float = deg_to_rad(40)
 
 var time_in_air: float = 0.0

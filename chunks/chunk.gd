@@ -6,7 +6,7 @@ class_name Chunk
 @export var polygon: Polygon2D
 @export var shape: CollisionPolygon2D
 
-const BOTTOM_OFFSET = 200
+const BOTTOM_OFFSET = 500
 
 func _ready():
   # Initialize the line and the shape collider based on the path curve
