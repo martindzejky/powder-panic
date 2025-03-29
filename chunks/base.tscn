@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://btnol5clr6iy1"]
+[gd_scene load_steps=5 format=3 uid="uid://btnol5clr6iy1"]
 
 [ext_resource type="Script" uid="uid://cj0mojf6oxxpk" path="res://chunks/chunk.gd" id="1_i74ng"]
+[ext_resource type="Script" uid="uid://v1aosyy3uomp" path="res://chunks/chunk_debug.gd" id="2_5va4c"]
 [ext_resource type="Script" uid="uid://c0rmwwdpahbpa" path="res://components/delete_when_far_away.gd" id="2_dl0qw"]
 
 [sub_resource type="Curve2D" id="Curve2D_1aw3e"]
@@ -15,6 +16,12 @@ path = NodePath("path")
 line = NodePath("line")
 polygon = NodePath("polygon")
 shape = NodePath("body/shape")
+
+[node name="debug" type="Node2D" parent="." node_paths=PackedStringArray("chunk", "path")]
+script = ExtResource("2_5va4c")
+chunk = NodePath("..")
+path = NodePath("../path")
+metadata/_custom_type_script = "uid://v1aosyy3uomp"
 
 [node name="path" type="Path2D" parent="."]
 curve = SubResource("Curve2D_1aw3e")

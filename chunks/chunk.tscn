@@ -5,13 +5,13 @@
 
 [sub_resource type="Curve2D" id="Curve2D_jnpik"]
 _data = {
-"points": PackedVector2Array(-79.7303, -5.93737, 79.7303, 5.93737, 0, 0, -185.755, -12.7229, 185.755, 12.7229, 351, 99)
+"points": PackedVector2Array(-43.0588, -1.12091, 43.0588, 1.12091, 0, 0, -129.3, -1.0871, 129.3, 1.0871, 351, 99)
 }
 point_count = 2
 
 [node name="chunk" instance=ExtResource("1_g7xvp")]
 
-[node name="path" parent="." index="0"]
+[node name="path" parent="." index="1"]
 curve = SubResource("Curve2D_jnpik")
 
 [node name="tree" parent="." index="5" instance=ExtResource("2_dl0qw")]
