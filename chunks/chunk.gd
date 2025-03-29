@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 class_name Chunk
 
@@ -6,9 +7,18 @@ class_name Chunk
 @export var polygon: Polygon2D
 @export var shape: CollisionPolygon2D
 
+@export_tool_button('Snap angles') var snap_angles_button := snap_angles
+
 const BOTTOM_OFFSET = 500
 
 func _ready():
+  update_shape()
+
+func update_shape():
+  # Do NOT run in the editor
+  if Engine.is_editor_hint():
+    return
+
   # Initialize the line and the shape collider based on the path curve
   var points := path.curve.tessellate(4, 2) # TODO: play with this value
   var polygon_points = points.duplicate()
@@ -27,3 +37,24 @@ func get_start_point():
 
 func get_end_point():
   return path.curve.get_point_position(path.curve.get_point_count() - 1)
+
+func snap_angles():
+  # This is a tool function which snaps both the start and end angles of the chunk to the nearest 20 degree angle
+  var start_dir = path.curve.get_point_out(0)
+  var end_dir = path.curve.get_point_in(path.curve.get_point_count() - 1)
+
+  # Current angles
+  var start_angle = rad_to_deg(start_dir.angle())
+  var end_angle = rad_to_deg(end_dir.angle())
+
+  # Snapped angles
+  var start_angle_snapped = roundf(start_angle / 20) * 20
+  var end_angle_snapped = roundf(end_angle / 20) * 20
+
+  # New directions
+  var start_dir_new = Vector2.RIGHT.rotated(deg_to_rad(start_angle_snapped)) * start_dir.length()
+  var end_dir_new = Vector2.RIGHT.rotated(deg_to_rad(end_angle_snapped)) * end_dir.length()
+
+  # Update the path
+  path.curve.set_point_out(0, start_dir_new)
+  path.curve.set_point_in(path.curve.get_point_count() - 1, end_dir_new)

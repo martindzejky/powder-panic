@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_jnpik"]
 _data = {
-"points": PackedVector2Array(-43.0588, -1.12091, 43.0588, 1.12091, 0, 0, -129.3, -1.0871, 129.3, 1.0871, 351, 99)
+"points": PackedVector2Array(-34.4007, -24.5416, 32.3712, 27.1626, 0, 0, -176.741, -1.54511e-05, 176.687, -4.33089, 351, 99)
 }
 point_count = 2
 
@@ -15,15 +15,15 @@ point_count = 2
 curve = SubResource("Curve2D_jnpik")
 
 [node name="tree" parent="." index="5" instance=ExtResource("2_dl0qw")]
-position = Vector2(33, 9)
+position = Vector2(29, 16)
 rotation = 0.19179
 
 [node name="tree2" parent="." index="6" instance=ExtResource("2_dl0qw")]
-position = Vector2(132, 48)
+position = Vector2(129, 60)
 rotation = 0.19179
 
 [node name="tree3" parent="." index="7" instance=ExtResource("2_dl0qw")]
-position = Vector2(150, 57)
+position = Vector2(149, 67)
 rotation = 0.314893
 
 [node name="tree4" parent="." index="8" instance=ExtResource("2_dl0qw")]
