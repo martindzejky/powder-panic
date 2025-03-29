@@ -10,7 +10,7 @@ _data = {
 }
 point_count = 2
 
-[node name="chunk_base" type="Node2D" node_paths=PackedStringArray("path", "line", "polygon", "shape")]
+[node name="chunk_base" type="Node2D" node_paths=PackedStringArray("path", "line", "polygon", "shape") groups=["chunk"]]
 script = ExtResource("1_i74ng")
 path = NodePath("path")
 line = NodePath("line")
