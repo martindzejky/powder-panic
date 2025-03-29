@@ -6,7 +6,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_1aw3e"]
 _data = {
-"points": PackedVector2Array(-112.633, -16.9834, 0, 0, 0, 0, 0, 0, 0, 0, 351, 99)
+"points": PackedVector2Array(-39.2927, -0.363822, 39.2944, 0, 0, 0, -31.6546, -2.76733e-06, 31.6525, -0.363822, 351, 99)
 }
 point_count = 2
 
@@ -17,16 +17,16 @@ line = NodePath("line")
 polygon = NodePath("polygon")
 shape = NodePath("body/shape")
 
-[node name="debug" type="Node2D" parent="." node_paths=PackedStringArray("chunk", "path")]
+[node name="debug" type="Node2D" parent="." node_paths=PackedStringArray("chunk")]
 script = ExtResource("2_5va4c")
 chunk = NodePath("..")
-path = NodePath("../path")
 metadata/_custom_type_script = "uid://v1aosyy3uomp"
 
 [node name="path" type="Path2D" parent="."]
 curve = SubResource("Curve2D_1aw3e")
 
 [node name="line" type="Line2D" parent="."]
+visible = false
 z_index = -1
 width = 4.0
 default_color = Color(0.980392, 0.984314, 0.988235, 1)
