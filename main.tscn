@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://1fwepvgqwsjn"]
+[gd_scene load_steps=4 format=3 uid="uid://1fwepvgqwsjn"]
 
 [ext_resource type="PackedScene" uid="uid://dhyu2fuadfp74" path="res://terrain/generator.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://x8po7mswgvxt" path="res://objects/player.tscn" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dnf8uwdy4xkhb" path="res://chunks/chunk.tscn" id="2_h2yge"]
 
 [node name="main" type="Node"]
 
 [node name="generator" parent="." instance=ExtResource("1_0xm2m")]
+
+[node name="chunk" parent="generator" instance=ExtResource("2_h2yge")]
 
 [node name="player" parent="." instance=ExtResource("1_1bvp3")]
 position = Vector2(265, 14)

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://btnol5clr6iy1" path="res://chunks/base.tscn" id="1_g7xvp"]
 [ext_resource type="PackedScene" uid="uid://dis1gi3l3tqjx" path="res://objects/tree.tscn" id="2_dl0qw"]
 
-[sub_resource type="Curve2D" id="Curve2D_jnpik"]
+[sub_resource type="Curve2D" id="Curve2D_28mp3"]
 _data = {
 "points": PackedVector2Array(-32.0298, -25.797, 31.5047, 26.4356, 0, 0, -206.799, -1.80789e-05, 206.785, -2.38983, 351, 99)
 }
@@ -12,20 +12,20 @@ point_count = 2
 [node name="chunk" instance=ExtResource("1_g7xvp")]
 
 [node name="path" parent="." index="1"]
-curve = SubResource("Curve2D_jnpik")
+curve = SubResource("Curve2D_28mp3")
 
 [node name="tree" parent="." index="5" instance=ExtResource("2_dl0qw")]
-position = Vector2(29, 16)
+position = Vector2(25, 19)
 rotation = 0.19179
 
 [node name="tree2" parent="." index="6" instance=ExtResource("2_dl0qw")]
-position = Vector2(129, 60)
+position = Vector2(127, 65)
 rotation = 0.19179
 
 [node name="tree3" parent="." index="7" instance=ExtResource("2_dl0qw")]
-position = Vector2(149, 67)
+position = Vector2(151, 73)
 rotation = 0.314893
 
 [node name="tree4" parent="." index="8" instance=ExtResource("2_dl0qw")]
-position = Vector2(280, 93)
+position = Vector2(281, 97)
 rotation = 0.0857774

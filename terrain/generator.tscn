@@ -9,5 +9,3 @@
 [node name="generator" type="Node"]
 script = ExtResource("1_ypw2t")
 chunks = Array[PackedScene]([ExtResource("2_5jnll"), ExtResource("3_0b048"), ExtResource("4_tmse2"), ExtResource("5_0b048")])
-
-[node name="chunk" parent="." instance=ExtResource("2_5jnll")]

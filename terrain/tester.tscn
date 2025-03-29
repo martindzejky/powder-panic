@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbyhv5gy2bi1j"]
+
+[ext_resource type="PackedScene" uid="uid://dhyu2fuadfp74" path="res://terrain/generator.tscn" id="2_e5c5m"]
+[ext_resource type="PackedScene" uid="uid://dnf8uwdy4xkhb" path="res://chunks/chunk.tscn" id="2_gol0n"]
+
+[node name="tester" type="Node"]
+
+[node name="generator" parent="." instance=ExtResource("2_e5c5m")]
+n_chunks_to_spawn = 20
+
+[node name="chunk" parent="generator" instance=ExtResource("2_gol0n")]
