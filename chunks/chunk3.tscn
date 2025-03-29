@@ -5,13 +5,13 @@
 
 [sub_resource type="Curve2D" id="Curve2D_64xdx"]
 _data = {
-"points": PackedVector2Array(-71.5876, 15.9638, 71.5876, -15.9638, 0, 0, -30.2662, -90.4592, 30.2662, 90.4592, 172, 203)
+"points": PackedVector2Array(-78.6127, -2.94604, 78.6678, 0, 0, 0, -16.564, -93.939, 30.2662, 90.4592, 172, 203)
 }
 point_count = 2
 
 [node name="chunk" instance=ExtResource("1_idh0g")]
 
-[node name="path" parent="." index="0"]
+[node name="path" parent="." index="1"]
 curve = SubResource("Curve2D_64xdx")
 
 [node name="trees" type="Node2D" parent="." index="5"]

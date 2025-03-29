@@ -35,11 +35,24 @@ func update_shape():
 func get_start_point():
   return path.curve.get_point_position(0)
 
+func get_start_angle():
+  var start_dir = path.curve.get_point_out(0)
+  var start_angle = rad_to_deg(start_dir.angle())
+  var start_angle_180 = fmod(start_angle + 180.0, 360.0) - 180.0
+  return roundf(start_angle_180 * 100) / 100
+
 func get_end_point():
   return path.curve.get_point_position(path.curve.get_point_count() - 1)
 
+func get_end_angle():
+  var end_dir = path.curve.get_point_in(path.curve.get_point_count() - 1)
+  var end_angle = rad_to_deg(end_dir.angle()) + 180.0
+  var end_angle_180 = fmod(end_angle + 180.0, 360.0) - 180.0
+  return roundf(end_angle_180 * 100) / 100
+
 func snap_angles():
-  # This is a tool function which snaps both the start and end angles of the chunk to the nearest 20 degree angle
+  # This is a tool function which snaps both the start and end angles
+  # of the chunk to the nearest 20 degree angle
   var start_dir = path.curve.get_point_out(0)
   var end_dir = path.curve.get_point_in(path.curve.get_point_count() - 1)
 

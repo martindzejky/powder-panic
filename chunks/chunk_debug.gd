@@ -52,9 +52,19 @@ func _draw() -> void:
   draw_line(end_point, end_point - end_dir, Color.RED, 2)
 
   # Display the angles
-  var start_angle = roundf(rad_to_deg(start_dir.angle()) * 100) / 100
-  var end_angle = roundf((rad_to_deg(end_dir.angle()) + 180.0) * 100) / 100
+  var start_angle_rounded = calculate_start_angle(start_dir)
+  var end_angle_rounded = calculate_end_angle(end_dir)
   var offset = Vector2(0, -16)
 
-  draw_string(default_font, start_point + offset, str(start_angle) + '°', HORIZONTAL_ALIGNMENT_CENTER, -1, 16, Color.RED)
-  draw_string(default_font, end_point + offset, str(end_angle) + '°', HORIZONTAL_ALIGNMENT_CENTER, -1, 16, Color.RED)
+  draw_string(default_font, start_point + offset, str(start_angle_rounded) + '°', HORIZONTAL_ALIGNMENT_CENTER, -1, 16, Color.RED)
+  draw_string(default_font, end_point + offset, str(end_angle_rounded) + '°', HORIZONTAL_ALIGNMENT_CENTER, -1, 16, Color.RED)
+
+func calculate_start_angle(direction: Vector2) -> float:
+  var angle = rad_to_deg(direction.angle())
+  var angle_180 = fmod(angle + 180.0, 360.0) - 180.0
+  return roundf(angle_180 * 100) / 100
+
+func calculate_end_angle(direction: Vector2) -> float:
+  var angle = rad_to_deg(direction.angle()) + 180.0
+  var angle_180 = fmod(angle + 180.0, 360.0) - 180.0
+  return roundf(angle_180 * 100) / 100
