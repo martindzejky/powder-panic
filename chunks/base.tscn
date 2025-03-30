@@ -1,23 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://btnol5clr6iy1"]
+[gd_scene load_steps=7 format=3 uid="uid://btnol5clr6iy1"]
 
 [ext_resource type="Script" uid="uid://cj0mojf6oxxpk" path="res://chunks/chunk.gd" id="1_i74ng"]
 [ext_resource type="Script" uid="uid://v1aosyy3uomp" path="res://chunks/chunk_debug.gd" id="2_5va4c"]
 [ext_resource type="Script" uid="uid://c0rmwwdpahbpa" path="res://components/delete_when_far_away.gd" id="2_dl0qw"]
-
-[sub_resource type="Curve" id="Curve_5va4c"]
-_limits = [0.0, 2.0, 0.0, 1.0]
-_data = [Vector2(0, 0.996011), 0.0, 0.0, 0, 0, Vector2(0.761407, 1.48556), 0.0, 0.0, 0, 0, Vector2(1, 0.996011), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Curve" id="Curve_kn225"]
-_limits = [0.0, 2.0, 0.0, 1.0]
-_data = [Vector2(0, 0.996011), 0.0, 0.0, 0, 0, Vector2(0.175856, 1.54779), 0.0, 0.0, 0, 0, Vector2(1, 0.996011), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Curve" id="Curve_e08i3"]
-_limits = [0.0, 2.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.429658, 1.10803), 0.335727, 0.335727, 0, 0, Vector2(0.563688, 1.33413), 0.545555, 0.545555, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_1aw3e"]
 _data = {
@@ -38,7 +23,6 @@ path = NodePath("path")
 line = NodePath("line")
 polygon = NodePath("polygon")
 shape = NodePath("body/shape")
-line_curves = Array[Curve]([SubResource("Curve_5va4c"), SubResource("Curve_kn225"), SubResource("Curve_e08i3")])
 
 [node name="debug" type="Node2D" parent="." node_paths=PackedStringArray("chunk")]
 script = ExtResource("2_5va4c")

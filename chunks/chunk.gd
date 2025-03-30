@@ -7,8 +7,6 @@ class_name Chunk
 @export var polygon: Polygon2D
 @export var shape: CollisionPolygon2D
 
-@export var line_curves: Array[Curve] = []
-
 @export_tool_button('Snap angles') var snap_angles_button := snap_angles
 @export_tool_button('Update shape') var update_shape_button := update_shape
 
@@ -25,21 +23,16 @@ func update_shape():
   # Initialize the line and the shape collider based on the path curve
   var points := path.curve.tessellate(4, 2) # TODO: play with this value
   var polygon_points := points.duplicate()
+  var shape_points := Geometry2D.offset_polyline(points, line.width / 2, Geometry2D.JOIN_ROUND, Geometry2D.END_ROUND)[0]
 
   # Add 2 points to the bottom of the polygon to close the shape
   polygon_points.append(points[-1] + Vector2.DOWN * BOTTOM_OFFSET)
   polygon_points.append(points[0] + Vector2.DOWN * BOTTOM_OFFSET)
 
-  # Offset the line points down by its thickness
-  # TODO
-
   # Assign the points to the line and the polygon
   line.points = points
   polygon.polygon = polygon_points
-  shape.polygon = polygon_points
-
-  # Choose one of the curves to use for the line
-  line.width_curve = line_curves.pick_random()
+  shape.polygon = shape_points
 
 func get_start_point():
   return path.curve.get_point_position(0)
