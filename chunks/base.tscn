@@ -1,8 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://btnol5clr6iy1"]
+[gd_scene load_steps=10 format=3 uid="uid://btnol5clr6iy1"]
 
 [ext_resource type="Script" uid="uid://cj0mojf6oxxpk" path="res://chunks/chunk.gd" id="1_i74ng"]
 [ext_resource type="Script" uid="uid://v1aosyy3uomp" path="res://chunks/chunk_debug.gd" id="2_5va4c"]
 [ext_resource type="Script" uid="uid://c0rmwwdpahbpa" path="res://components/delete_when_far_away.gd" id="2_dl0qw"]
+
+[sub_resource type="Curve" id="Curve_5va4c"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.996011), 0.0, 0.0, 0, 0, Vector2(0.761407, 1.48556), 0.0, 0.0, 0, 0, Vector2(1, 0.996011), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_kn225"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.996011), 0.0, 0.0, 0, 0, Vector2(0.175856, 1.54779), 0.0, 0.0, 0, 0, Vector2(1, 0.996011), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_e08i3"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.429658, 1.10803), 0.335727, 0.335727, 0, 0, Vector2(0.563688, 1.33413), 0.545555, 0.545555, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_1aw3e"]
 _data = {
@@ -10,21 +25,20 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Gradient" id="Gradient_5va4c"]
-offsets = PackedFloat32Array(0, 0.877005, 1)
-colors = PackedColorArray(0.1708, 0.364975, 0.58838, 1, 0.404243, 0.590773, 0.717178, 1, 0.803282, 0.927898, 0.98112, 1)
+[sub_resource type="Gradient" id="Gradient_kn225"]
+colors = PackedColorArray(0.403922, 0.592157, 0.717647, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_kn225"]
-gradient = SubResource("Gradient_5va4c")
-width = 256
-height = 256
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e08i3"]
+gradient = SubResource("Gradient_kn225")
 fill_from = Vector2(1, 1)
 
-[node name="chunk_base" type="Node2D" node_paths=PackedStringArray("path", "polygon", "shape") groups=["chunk"]]
+[node name="chunk_base" type="Node2D" node_paths=PackedStringArray("path", "line", "polygon", "shape") groups=["chunk"]]
 script = ExtResource("1_i74ng")
 path = NodePath("path")
+line = NodePath("line")
 polygon = NodePath("polygon")
 shape = NodePath("body/shape")
+line_curves = Array[Curve]([SubResource("Curve_5va4c"), SubResource("Curve_kn225"), SubResource("Curve_e08i3")])
 
 [node name="debug" type="Node2D" parent="." node_paths=PackedStringArray("chunk")]
 script = ExtResource("2_5va4c")
@@ -34,9 +48,18 @@ metadata/_custom_type_script = "uid://v1aosyy3uomp"
 [node name="path" type="Path2D" parent="."]
 curve = SubResource("Curve2D_1aw3e")
 
+[node name="line" type="Line2D" parent="."]
+z_index = -1
+width = 20.0
+texture = SubResource("GradientTexture2D_e08i3")
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
 [node name="polygon" type="Polygon2D" parent="."]
 z_index = -2
-texture = SubResource("GradientTexture2D_kn225")
+color = Color(0.403922, 0.592157, 0.717647, 1)
 
 [node name="body" type="StaticBody2D" parent="."]
 

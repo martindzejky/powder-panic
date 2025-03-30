@@ -3,8 +3,11 @@ extends Node2D
 class_name Chunk
 
 @export var path: Path2D
+@export var line: Line2D
 @export var polygon: Polygon2D
 @export var shape: CollisionPolygon2D
+
+@export var line_curves: Array[Curve] = []
 
 @export_tool_button('Snap angles') var snap_angles_button := snap_angles
 @export_tool_button('Update shape') var update_shape_button := update_shape
@@ -23,38 +26,20 @@ func update_shape():
   var points := path.curve.tessellate(4, 2) # TODO: play with this value
   var polygon_points := points.duplicate()
 
-  # Copy the line to the bottom of the polygon but in reverse order,
-  # so we essentially get a super thick "line".
-  var points_reversed := points.duplicate()
-  points_reversed.reverse()
+  # Add 2 points to the bottom of the polygon to close the shape
+  polygon_points.append(points[-1] + Vector2.DOWN * BOTTOM_OFFSET)
+  polygon_points.append(points[0] + Vector2.DOWN * BOTTOM_OFFSET)
 
-  for point in points_reversed:
-    polygon_points.append(point + Vector2.DOWN * BOTTOM_OFFSET)
+  # Offset the line points down by its thickness
+  # TODO
 
   # Assign the points to the line and the polygon
+  line.points = points
   polygon.polygon = polygon_points
   shape.polygon = polygon_points
 
-  # Now generate the UV coordinates for the polygon.
-  # Each point on the top line should be between 0,0 and 1,0 (left to right).
-  # The points on the bottom line should be between 0,1 and 1,1 (left to right).
-  var uv_points: PackedVector2Array = []
-  var x_min = points[0].x
-  var x_max = points[-1].x
-  var texture_width = polygon.texture.get_width()
-  var texture_height = polygon.texture.get_height()
-
-  # UVs for the top line
-  for point in points:
-    uv_points.append(Vector2((point.x - x_min) / (x_max - x_min) * texture_width, 0))
-    print(uv_points[-1])
-
-  # UVs for the bottom line
-  for point in points_reversed:
-    uv_points.append(Vector2((point.x - x_min) / (x_max - x_min) * texture_width, texture_height))
-    print(uv_points[-1])
-
-  polygon.uv = uv_points
+  # Choose one of the curves to use for the line
+  line.width_curve = line_curves.pick_random()
 
 func get_start_point():
   return path.curve.get_point_position(0)
